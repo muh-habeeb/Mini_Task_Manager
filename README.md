@@ -97,11 +97,13 @@ Then run the schema (if provided) or ensure the backend auto-creates tables if c
 
 ### 5. 🚦 Start the Server
 
+
 ```
 npm run dev 
 ```
 >[!INFO]
 >### 6. 🌐 Access the App
+
 
 ```
 http://localhost:3000
