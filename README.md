@@ -72,7 +72,8 @@ cd task-tracker/server
 ```
 ### 2 📁 Environment Variables
 
-> #### [!IMPORTANT] Create a .env file inside the server/ directory and add your MySQL credentials:
+>[!IMPORTANT]
+>### Create a .env file inside the server/ directory and add your MySQL credentials:
 ```
 DB_HOST=localhost
 DB_USER=root
@@ -86,7 +87,8 @@ JWT_SECRET=your_jwt_secret
 npm install
 ```
 
-> ### [!CAUTION] 4. 🏗️ Create Database & Tables
+>[!CAUTION]
+>### 4. 🏗️ Create Database & Tables
 
 Create a MySQL database named task_tracker.
 Then run the schema (if provided) or ensure the backend auto-creates tables if configured.
@@ -96,7 +98,7 @@ Then run the schema (if provided) or ensure the backend auto-creates tables if c
 ```
 npm run dev 
 ```
->[!TIP]
+>[!INFO]
 >### 6. 🌐 Access the App
 
 ```
@@ -137,4 +139,3 @@ SQL parameterization to prevent injection
 Form validation on both client and server side  
 
 
->[!DANGER]
