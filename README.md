@@ -83,8 +83,10 @@ DB_PORT=3306       # Optional
 JWT_SECRET=your_jwt_secret
 ```
 ### 3 🧱 Install Dependencies
+
 ```json
 npm install
+
 ```
 
 >[!CAUTION]
