@@ -101,7 +101,7 @@ Then run the schema (if provided) or ensure the backend auto-creates tables if c
 ```
 npm run dev 
 ```
->[!INFO]
+>[!NOTE]
 >### 6. 🌐 Access the App
 
 
