@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Daily Task Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="nav">
+            <h1>Task Dashboard</h1>
+            <div class="nav-links">
+                <span id="user-welcome"></span>
+                <button id="logout-btn" class="btn btn-danger">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="alert-container"></div>
+
+        <!-- Add Task Button -->
+        <div style="margin-bottom: 2rem;">
+            <button id="add-task-btn" class="btn btn-success">+ Add New Task</button>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <h3>Filter Tasks</h3>
+            <div class="filter-controls">
+                <div class="form-group">
+                    <label for="filter-status">Status</label>
+                    <select id="filter-status">
+                        <option value="">All</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filter-priority">Priority</label>
+                    <select id="filter-priority">
+                        <option value="">All</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sort-by">Sort By</label>
+                    <select id="sort-by">
+                        <option value="created_at">Created Date</option>
+                        <option value="due_date">Due Date</option>
+                        <option value="priority">Priority</option>
+                        <option value="title">Title</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sort-order">Order</label>
+                    <select id="sort-order">
+                        <option value="DESC">Descending</option>
+                        <option value="ASC">Ascending</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>&nbsp;</label>
+                    <button id="apply-filters" class="btn">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tasks Section -->
+        <div class="card">
+            <h2>Your Tasks</h2>
+            <div id="tasks-container">
+                <!-- Tasks will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Analytics Section -->
+        <div class="card">
+            <h2>Productivity Insights</h2>
+            <div class="form-group" style="max-width: 200px; margin-bottom: 2rem;">
+                <label for="analytics-period">Period</label>
+                <select id="analytics-period">
+                    <option value="week">Last 7 Days</option>
+                    <option value="month">Last 30 Days</option>
+                    <option value="year">Last Year</option>
+                </select>
+            </div>
+
+            <div class="stats-grid">
+                <div class="chart-container">
+                    <h3>Tasks Completed Over Time</h3>
+                    <canvas id="completion-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Task Status Distribution</h3>
+                    <canvas id="status-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Task Priority Distribution</h3>
+                    <canvas id="priority-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Modal -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">Add New Task</h2>
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+                <div class="form-group">
+                    <label for="task-title">Title *</label>
+                    <input type="text" id="task-title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="task-description">Description</label>
+                    <textarea id="task-description" name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="task-due-date">Due Date</label>
+                    <input type="date" id="task-due-date" name="due_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="task-priority">Priority</label>
+                    <select id="task-priority" name="priority" required>
+                        <option value="Low">Low</option>
+                        <option value="Medium" selected>Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+                <div class="form-group" id="status-group" style="display: none;">
+                    <label for="task-status">Status</label>
+                    <select id="task-status" name="status">
+                        <option value="Pending">Pending</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <button type="submit" class="btn btn-success">Save Task</button>
+                    <button type="button" id="cancel-task" class="btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/analytics.js"></script>
+    <script>
+        // Initialize dashboard when page loads
+        document.addEventListener('DOMContentLoaded', initDashboard);
+    </script>
+</body>
+
+</html>
