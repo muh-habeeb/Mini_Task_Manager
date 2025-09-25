@@ -40,6 +40,14 @@ function setupEventListeners() {
 
     // Apply filters
     document.getElementById('apply-filters').addEventListener('click', loadTasks);
+    document.getElementById('reset-filters').addEventListener('click', () => {
+        document.getElementById('filter-status').value = '';
+        document.getElementById('filter-priority').value = '';
+        document.getElementById('sort-by').value = 'created_at';
+        document.getElementById('sort-order').value = 'desc';
+        loadTasks();
+    }
+    );
 
     // Analytics period change
     document.getElementById('analytics-period').addEventListener('change', loadAnalytics);
