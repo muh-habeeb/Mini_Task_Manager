@@ -96,7 +96,8 @@ Then run the schema (if provided) or ensure the backend auto-creates tables if c
 ```
 npm run dev 
 ```
->  ### [!TIP] 6. 🌐 Access the App
+>[!TIP]
+>### 6. 🌐 Access the App
 
 ```
 http://localhost:3000
@@ -136,4 +137,4 @@ SQL parameterization to prevent injection
 Form validation on both client and server side  
 
 
-[!DANGER]
+>[!DANGER]
